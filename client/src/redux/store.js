@@ -1,18 +1,46 @@
-import React from 'react'
-import {createStore} from 'redux'
-import rootReducer from './reducers/'
-import {Provider} from 'react-redux'
+import React from "react";
+import { configureStore } from "@reduxjs/toolkit";
+import rootReducer from "./reducers/";
+import { Provider } from "react-redux";
 
-const store = createStore(rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+// if (typeof window !== "undefined") {
+// 	const store = createStore(
+// 		rootReducer,
+// 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// 	);
+// }
 
-function DataProvider({children}) {
-    return (
-        <Provider store={store}>
-            {children}
-        </Provider>
-    )
+// const store = configureStore({
+// 	reducer: {
+// 		// Define a top-level state field named `todos`, handled by `todosReducer`
+// 		todos: rootReducer,
+// 		filters: window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+// 	},
+// });
+
+function DataProvider({ children }) {
+	const [store, setStore] = React.useState();
+	React.useEffect(() => {
+		// setStore(
+		// 	createStore(
+		// 		rootReducer,
+		// 		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+		// 	)
+		// );
+		setStore(
+			configureStore({
+				reducer: {
+					// Define a top-level state field named `todos`, handled by `todosReducer`
+					todos: rootReducer,
+					filters:
+						window.__REDUX_DEVTOOLS_EXTENSION__ &&
+						window.__REDUX_DEVTOOLS_EXTENSION__(),
+				},
+			})
+		);
+	}, []);
+
+	return <Provider store={store}>{children}</Provider>;
 }
 
-export default DataProvider
+export default DataProvider;
