@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "next/link";
+import Link from "next/link";
 import axios from "axios";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification/Notification";
 import { isEmpty, isEmail, isLength, isMatch } from "../../utils/validation/Validation";
@@ -114,7 +114,10 @@ function Register() {
 			</form>
 
 			<p>
-				Already an account? <Link href="/login">Login</Link>
+				Already an account?{" "}
+				<Link href="/login">
+					<a>Login</a>
+				</Link>
 			</p>
 		</div>
 	);

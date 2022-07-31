@@ -1,13 +1,12 @@
 // import App from 'next/app'
 import React from "react";
-import DataProvider from "../redux/store";
+import { wrapper } from "../redux/store";
+import "../styles/index.css";
 
 function MyApp({ Component, pageProps }) {
 	return (
 		<React.StrictMode>
-			<DataProvider>
-				<Component {...pageProps} />
-			</DataProvider>
+			<Component {...pageProps} />
 		</React.StrictMode>
 	);
 }
@@ -24,4 +23,4 @@ function MyApp({ Component, pageProps }) {
 //   return { ...appProps }
 // }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

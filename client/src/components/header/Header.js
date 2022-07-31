@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "next/link";
+import Link from "next/link";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
@@ -22,16 +22,20 @@ function Header() {
 		return (
 			<li className="drop-nav">
 				<Link href="#" className="avatar">
-					<img src={user.avatar} alt="" /> {user.name}{" "}
-					<i className="fas fa-angle-down"></i>
+					<a>
+						<img src={user.avatar} alt="" /> {user.name}{" "}
+						<i className="fas fa-angle-down"></i>
+					</a>
 				</Link>
 				<ul className="dropdown">
 					<li>
-						<Link href="/profile">Profile</Link>
+						<Link href="/profile">
+							<a>Profile</a>
+						</Link>
 					</li>
 					<li>
 						<Link href="/" onClick={handleLogout}>
-							Logout
+							<a>Logout</a>
 						</Link>
 					</li>
 				</ul>
@@ -47,7 +51,9 @@ function Header() {
 		<header>
 			<div className="logo">
 				<h1>
-					<Link to="/">Resume Builder</Link>
+					<Link href="/">
+						<a>Resume Builder</a>
+					</Link>
 				</h1>
 			</div>
 
@@ -61,8 +67,10 @@ function Header() {
 					userLink()
 				) : (
 					<li>
-						<Link to="/login">
-							<i className="fas fa-user"></i> Sign in
+						<Link href="/login">
+							<a>
+								<i className="fas fa-user"></i> Sign in
+							</a>
 						</Link>
 					</li>
 				)}

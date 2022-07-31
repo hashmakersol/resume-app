@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "next/link";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { showErrMsg, showSuccessMsg } from "../../utils/notification/Notification";
@@ -109,7 +109,9 @@ function Login() {
 
 				<div className="row">
 					<button type="submit">Login</button>
-					<Link href="/forgot_password">Forgot your password?</Link>
+					<Link href="/forgot_password">
+						<a>Forgot your password?</a>
+					</Link>
 				</div>
 			</form>
 
@@ -132,7 +134,10 @@ function Login() {
 			</div>
 
 			<p>
-				New Customer? <Link href="/register">Register</Link>
+				New Customer?{" "}
+				<Link href="/register">
+					<a>Register</a>
+				</Link>
 			</p>
 		</div>
 	);

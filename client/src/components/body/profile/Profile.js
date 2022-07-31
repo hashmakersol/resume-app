@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "next/link";
+import Link from "next/link";
 import { isLength, isMatch } from "../../utils/validation/Validation";
 import { showSuccessMsg, showErrMsg } from "../../utils/notification/Notification";
 import { fetchAllUsers, dispatchGetAllUsers } from "../../../redux/actions/usersAction";
@@ -247,7 +247,9 @@ function Profile() {
 										</td>
 										<td>
 											<Link href={`/edit_user/${user._id}`}>
-												<i className="fas fa-edit" title="Edit"></i>
+												<a>
+													<i className="fas fa-edit" title="Edit"></i>
+												</a>
 											</Link>
 											<i
 												className="fas fa-trash-alt"

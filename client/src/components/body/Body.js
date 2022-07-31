@@ -16,26 +16,7 @@ import Home from "../body/home/Home";
 import { useSelector } from "react-redux";
 
 function Body() {
-	const auth = useSelector((state) => state.auth);
-	const { isLogged, isAdmin } = auth;
-	return (
-		<section>
-			<>
-				<Link href="/" component={Home} exact />
-
-				<Link href="/login" component={isLogged ? NotFound : Login} exact />
-				<Link href="/register" component={isLogged ? NotFound : Register} exact />
-
-				<Link href="/forgot_password" component={isLogged ? NotFound : ForgotPass} exact />
-				<Link href="/user/reset/:token" component={isLogged ? NotFound : ResetPass} exact />
-
-				<Link href="/user/activate/:activation_token" component={ActivationEmail} exact />
-
-				<Link href="/profile" component={isLogged ? Profile : NotFound} exact />
-				<Link href="/edit_user/:id" component={isAdmin ? EditUser : NotFound} exact />
-			</>
-		</section>
-	);
+	return <Home />;
 }
 
 export default Body;

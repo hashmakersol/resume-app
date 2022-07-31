@@ -3,13 +3,11 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from ".pages/App";
 import * as serviceWorker from "./serviceWorker";
-import DataProvider from "./redux/store";
+// import DataProvider from "./redux/store";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<DataProvider>
-			<App />
-		</DataProvider>
+		<App />
 	</React.StrictMode>,
 	document.getElementById("root")
 );
