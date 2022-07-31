@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
 	user: [],
@@ -10,15 +11,21 @@ export const authSlice = createSlice({
 	name: "auth",
 	initialState,
 	reducers: {
-		LOGIN: (state, action) => {
+		dispatchLogin: () => {
 			isLogged = true;
 		},
-		GET_USER: (state, action) => {
-			(user = action.payload.user), (isAdmin = action.payload.isAdmin);
+		fetchUser: async (token) => {
+			const res = await axios.get("/user/infor", {
+				headers: { Authorization: token },
+			});
+			return res;
+		},
+		dispatchGetUser: (res) => {
+			(user = res.data), (isAdmin = res.data.role === 1 ? true : false);
 		},
 	},
 });
 
-export const { LOGIN, GET_USER } = authSlice.actions;
+export const { dispatchLogin, fetchUser, dispatchGetUser } = authSlice.actions;
 
 export default authSlice.reducer;
