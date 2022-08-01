@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema(
     avatar: {
       type: String,
       default:
-        "https://res.cloudinary.com/duxee2do5/image/upload/v1652167366/cld-sample.jpg",
+        "https://th.bing.com/th/id/R.766b6dbdd4aa56b8ac77b89e01779c2d?rik=EQTuWTnvmMBQFw&pid=ImgRaw&r=0",
     },
   },
   {
@@ -32,4 +32,4 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Users", userSchema);
+module.exports = User = mongoose.model("users", userSchema);
