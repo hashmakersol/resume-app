@@ -18,8 +18,7 @@ function ActivationEmail() {
       const activationEmail = async () => {
         try {
           const res = await axios.post(
-            // `${config.API_ENPOINT}/user/activation`,
-            "http://localhost:5001/user/activation",
+            `${config.API_ENPOINT}/user/activation`,
             { activation_token }
           );
           setSuccess(res.data.msg);
