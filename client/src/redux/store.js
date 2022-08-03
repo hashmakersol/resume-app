@@ -3,9 +3,9 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 // import rootReducer from "./reducers/";
 // import { Provider } from "react-redux";
-import auth from "./reducers/authReducer";
-import token from "./reducers/tokenReducer";
-import users from "./reducers/usersReducer";
+import auth from "./authSlice";
+import token from "./tokenSlice";
+import users from "./usersSlice";
 
 // if (typeof window !== "undefined") {
 // 	var store = createStore(
